@@ -6,6 +6,9 @@
   </div>
   <b>NgFor</b>
   <br>
-  <div *ngFor="let item of listProducts">
-    <app-product-shared [product]="item"></app-product-shared>
+  <div class="row">
+    <div *ngFor="let item of listProducts" class="col-12 col-md-3">
+      <app-product-shared [product]="item"></app-product-shared>
+    </div>
   </div>
+
