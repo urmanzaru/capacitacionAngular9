@@ -1,5 +1,9 @@
 <app-product-shared [product] = "product"></app-product-shared>
   <br>
+  <div class="fx-cv-sb">
+    <p><b>Lista de productos</b></p>
+    <button type="button" (click)="addProduct()">AGREGAR</button>
+  </div>
   <b>NgFor</b>
   <br>
   <div *ngFor="let item of listProducts">

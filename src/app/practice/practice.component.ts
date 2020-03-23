@@ -23,6 +23,16 @@ export class PracticeComponent implements OnInit {
     this.add3Productos();
   }
 
+  addProduct(){
+    this.listProducts.push({
+      name: 'Product: '+this.listProducts.length,
+      description: "descripción",
+      type: 1,
+      image: 'https://dam.cocinafacil.com.mx/wp-content/uploads/2019/06/Tlayuda-chapulines.jpg',
+      price: 180,
+    });
+  }
+
   add3Productos(){
     this.listProducts.push({
       name: 'Tejate',
