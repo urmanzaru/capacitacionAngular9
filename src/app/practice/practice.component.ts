@@ -43,4 +43,15 @@ add3Products() {
   });
   this.listProducts.push(this.product);
 }
+getTextType(type:number){
+  if(type==1){
+    return 'comida';
+  }
+  if(type==2){
+    return 'Bebida';
+  }
+  else{
+    return 'postres';
+  }
+}
 }
