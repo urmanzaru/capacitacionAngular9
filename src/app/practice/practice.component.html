@@ -1,1 +1,22 @@
-<p>practice works!</p>
+<div class="pd-general" style="width: 300px;">
+    <img src="{{product.image}}" width="300px" height="250px"> {{product.name}}
+    <p>{{product.description}}</p>
+    <div class="fx-cv-sb">
+        <div><b>{{product.price}}</b></div>
+        <div><b>{{product.type}}</b></div>
+    </div>
+</div>
+
+<br>
+<b>NgFor</b>
+<br>
+<div *ngFor="let product of listProducts">
+    <div class="pd-general" style="width: 300px;">
+        <img src="{{product.image}}" width="300px" height="250px"> {{product.name}}
+        <p>{{product.description}}</p>
+        <div class="fx-cv-sb">
+            <div><b>{{product.price}}</b></div>
+            <div><b>{{product.type}}</b></div>
+        </div>
+    </div>
+</div>
