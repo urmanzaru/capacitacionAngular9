@@ -46,12 +46,13 @@ this.listProducts.push({
       price: 45.6,
       type: 2
     });
+
     this.listProducts.push({
       name: 'flan',
       description :'flan',
       image: 'https://i.ytimg.com/vi/wA2NR3O3b1s/hqdefault.jpg',
       price: 45.6,
-      type: 2
+      type: 3
     });
 
 
