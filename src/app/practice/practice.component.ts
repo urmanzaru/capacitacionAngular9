@@ -44,14 +44,13 @@ add3Products() {
   this.listProducts.push(this.product);
 }
 getTextType(type:number){
-  if(type==1){
-    return 'comida';
+  if(type===1){
+    return 'Postres';
   }
-  if(type==2){
-    return 'Bebida';
-  }
-  else{
-    return 'postres';
+  if(type===2){
+    return 'Comidas';
+  } else {
+    return 'Postres'
   }
 }
 }
