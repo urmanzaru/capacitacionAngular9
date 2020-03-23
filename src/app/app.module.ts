@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PracticeComponent } from './practice/practice.component';
+import { ProductSharedComponent } from './shared/product-shared/product-shared.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavigationComponent,
-    PracticeComponent
+    PracticeComponent,
+    ProductSharedComponent
   ],
   imports: [
     BrowserModule,

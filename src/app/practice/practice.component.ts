@@ -41,15 +41,6 @@ export class PracticeComponent implements OnInit {
     });
   }
 
-  getTextType(type:number){
-    if(type===1){
-      return 'Comidas';
-    }
-    if(type===2){
-      return 'Bebidas';
-    } else {
-      return 'Comida típica'
-    }
-  }
+
 
 }
