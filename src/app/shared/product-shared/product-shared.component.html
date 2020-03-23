@@ -1,0 +1,8 @@
+<div class="pd-general" style="width: 300px">
+  <img src="{{product.image}}" width="300px" height="200px"> {{product.name}}
+   <p>{{product.description | uppercase}}</p>
+  <div class="fx-cv-sb">
+      <p>{{product.price | currency}}</p>
+      <b>{{product.type==1?'Postres':(product.type==2?'Comidas':'Bebidas')}}</b>
+  </div>
+</div>
