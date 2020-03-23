@@ -3,7 +3,18 @@
   {{product.name}}
   <p>{{product.description}}</p>
   <div><b>{{product.price}}</b></div>
-  <div><b>{{product.type}}</b></div>
+  <div><b>{{product.type==1? 'comida':product.type==2?'bebidas':'postres'}}</b></div>
+
+  <br>
+  <b>NgFor</b>
+  <br>
+  <div *ngFor= "let product of listProducts"></div>
+  <div  class="pd-general" style="width: 300px" *ngIf= "product.type == 1">
+    <img src="{{product.image}}" alt="300px" height="250px">
+      {{product.name}}
+      <p>{{product.description}}</p>
+      <div><b>{{product.price}}</b></div>
+      <div><b>{{getTextType(product.type)}}</b></div>
 
 
 </div>

@@ -42,14 +42,21 @@ listProducts: ProductItf[] = [];
       price: 45.6,
       type: 2
     })
-    this.listProducts.push({
-      name: 'tejate',
-      description :'tejate de coco el mejor',
-      image: 'https://lh3.googleusercontent.com/proxy/86tUBnuD3AhhU3zLUR4l2U1pdSMH41c-GkOZ5eSIcaIop1PNLpu_GOuQt5Huer94qaDZN9gvTjPdZsPn9tyejjj85GXj1O-zDQ9Yo0vDha4C0g5pBKkGwA',
-      price: 45.6,
-      type: 2
-    })
+
 
   }
+  getTextType(type:number){
+    if (type===1) {
+      return 'comida';
+    }
+    if (type===2) {
+      return 'bebidas';
+    }
+    if (type===3) {
+      return 'postres';
+    }
+
+  }
+}
 
 

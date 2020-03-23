@@ -1,5 +1,5 @@
 export interface ProductItf{
-  status?:boolean;
+  status?:boolean,
   type: 1,
   name:string;
   description:string,
