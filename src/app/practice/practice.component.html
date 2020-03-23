@@ -3,7 +3,7 @@
     <p>{{product.description}}</p>
     <div class="fx-cv-sb">
         <div><b>{{product.price}}</b></div>
-        <div><b>{{product.type}}</b></div>
+        <div><b>{{product.type==1?'Comida':product.type==2?'Bebidas':'Postres'}}</b></div>
     </div>
 </div>
 
@@ -11,12 +11,12 @@
 <b>NgFor</b>
 <br>
 <div *ngFor="let product of listProducts">
-    <div class="pd-general" style="width: 300px;">
+    <div class="pd-general" style="width: 300px;" *ngIf="product.type == 3">
         <img src="{{product.image}}" width="300px" height="250px"> {{product.name}}
         <p>{{product.description}}</p>
         <div class="fx-cv-sb">
             <div><b>{{product.price}}</b></div>
-            <div><b>{{product.type}}</b></div>
+            <div><b>{{getTextType(product.type)}}</b></div>
         </div>
     </div>
 </div>

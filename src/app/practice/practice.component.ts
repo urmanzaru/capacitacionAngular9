@@ -1,5 +1,5 @@
-import { ProductItf } from './../interfaces/product.interface';
 import { Component, OnInit } from '@angular/core';
+import { ProductItf } from '../interfaces/product.interface';
 
 @Component({
   selector: 'app-practice',
@@ -39,6 +39,17 @@ export class PracticeComponent implements OnInit {
       type: 3
     });
     this.listProducts.push(this.product);
+  }
+
+  getTextType(type:number){
+    if(type===1){
+      return 'Comidas';
+    }
+    if(type===2){
+      return 'Bebidas';
+    } else{
+      return 'Postres';
+    }
   }
 
 }
