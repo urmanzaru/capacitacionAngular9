@@ -23,6 +23,16 @@ export class PracticeComponent implements OnInit {
     this.add3Products();
   }
 
+  addProduct(){
+    this.listProducts.push({
+      name: 'producto: '+this.listProducts.length,
+      description: 'description',
+      type: 1,
+      image: 'https://lh3.googleusercontent.com/proxy/LCET9ucF9RKS_Mbx5EqWQjo3XZKAFl-X86-MUehBocW7MaYQpUtb_mGxkQcGvZ8e5ZojpIstVRN_8GuhXmnmGUcKaAbB4rNfuUmZnz-GrIf01VNeGlKn59BsLdfknTXcttggmOc-tSWEA_GgggC1pV7bTuQo78g27kDn',
+      price: 120
+    });
+  }
+
   add3Products(){
     this.listProducts.push({
       name: 'tejate',
