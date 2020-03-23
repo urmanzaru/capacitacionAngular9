@@ -1,4 +1,5 @@
-<app-product-shared [product]="product"></app-product-shared>
+<div style="padding: 20px  10%,; width:100%;">
+  <app-product-shared [product]="product"></app-product-shared>
 
   <br>
  <div class="fx-cv-sb">
@@ -7,6 +8,13 @@
  </div>
 
   <br>
-  <div *ngFor="let item of listProducts">
-    <app-product-shared [product]="item"></app-product-shared>
+
+
+    <div class="row">
+      <div *ngFor="let item of listProducts" class="col-12 col-md-4">
+        <app-product-shared [product]="item"></app-product-shared>
+      </div>
+
+    </div>
   </div>
+
