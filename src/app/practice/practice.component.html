@@ -1,20 +1,7 @@
-<div  class="pd-general" style="width: 300px">
-<img src="{{product.image}}" alt="300px" height="250px">
-  {{product.name}}
-  <p>{{product.description}}</p>
-  <div><b>{{product.price}}</b></div>
-  <div><b>{{product.type==1? 'comida':product.type==2?'bebidas':'postres'}}</b></div>
-
+<app-product-shared [product]="product"></app-product-shared>
   <br>
   <b>NgFor</b>
   <br>
-  <div *ngFor= "let product of listProducts"></div>
-  <div  class="pd-general" style="width: 300px" *ngIf= "product.type == 1">
-    <img src="{{product.image}}" alt="300px" height="250px">
-      {{product.name}}
-      <p>{{product.description}}</p>
-      <div><b>{{product.price}}</b></div>
-      <div><b>{{getTextType(product.type)}}</b></div>
-
-
+  <div *ngFor= "let item of listProducts">
+  <app-product-shared [product]="item"></app-product-shared>
 </div>

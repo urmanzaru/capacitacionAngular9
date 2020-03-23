@@ -18,7 +18,7 @@ const routes: Routes = [
     component: NavigationComponent
   },
   {
-    path: '**', redirectTo: '/access'
+    path: '**', redirectTo: '/practice'
   }
 ];
 
