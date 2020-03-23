@@ -23,6 +23,17 @@ this.product={
 }
 this.add3Products();
 }
+//button
+addProduct(){
+this.listProducts.push({
+  name:'product:' + this.listProducts.length,
+  description:'description',
+  image:'https://www.lactaid.com/sites/lactaid_us/files/recipe-images/easy_flan.jpg',
+  price:120,
+  type:1
+})
+
+}
 //areglo de producto
 add3Products() {
   this.listProducts.push({
