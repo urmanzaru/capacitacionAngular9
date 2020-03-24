@@ -12,52 +12,47 @@ export class PracticeComponent implements OnInit {
 product:ProductItf;
 listProducts: ProductItf[] = [];
 
-  constructor() { }
+constructor() { }
 
-  ngOnInit(): void {
-
+ngOnInit(): void {
   this.product = {
-    name: 'tlayuda de oaxaca',
-    description : 'una rica tlayuda de tasajo',
-    image: 'https://www.turimexico.com/wp-content/uploads/2016/09/Receta-Tlayuda-con-Tasajo.jpg',
-    price: 54.5,
+    name: 'Tlayuda de tasajo.',
+    description: 'Tlayuda con tasajo para una persona',
+    image: 'https://dam.cocinafacil.com.mx/wp-content/uploads/2019/06/Tlayuda-chapulines.jpg',
+    price: 75.5,
     type: 1
+  }
+  this.add3Productos();
+}
 
-  }
-  this.add3Products();
-  }
 addProduct(){
-this.listProducts.push({
-  name: 'producto:' + this.listProducts.length,
-  description: 'descriprion',
-  type: 1,
-  image: 'https://www.turimexico.com/wp-content/uploads/2016/09/Receta-Tlayuda-con-Tasajo.jpg',
-  price: 129
-});
+  this.listProducts.push({
+    name: 'Product: '+this.listProducts.length,
+    description: "descripción",
+    type: 1,
+    image: 'https://dam.cocinafacil.com.mx/wp-content/uploads/2019/06/Tlayuda-chapulines.jpg',
+    price: 180,
+  });
+}
+
+add3Productos(){
+  this.listProducts.push({
+    name: 'Tejate',
+    description: 'Bebida de los dioses.',
+    image: 'https://www.eluniversal.com.mx/sites/default/files/styles/f01-1023x630/public/2019/05/28/tejate_1.jpg?itok=Udpf2IKh',
+    price: 45.5,
+    type: 2
+  });
+
+  this.listProducts.push({
+    name: 'Mole',
+    description: 'Comida tradicional.',
+    image: 'https://laroussecocina.mx/wp-content/uploads/2017/12/mole-poblano-001-larousse-cocina_0-1024x640.jpg',
+    price: 100,
+    type: 3
+  });
 }
 
 
 
-  add3Products(){
-    this.listProducts.push({
-      name: 'tejate',
-      description :'tejate de coco el mejor',
-      image: 'https://lh3.googleusercontent.com/proxy/86tUBnuD3AhhU3zLUR4l2U1pdSMH41c-GkOZ5eSIcaIop1PNLpu_GOuQt5Huer94qaDZN9gvTjPdZsPn9tyejjj85GXj1O-zDQ9Yo0vDha4C0g5pBKkGwA',
-      price: 45.6,
-      type: 2
-    });
-
-    this.listProducts.push({
-      name: 'flan',
-      description :'flan',
-      image: 'https://i.ytimg.com/vi/wA2NR3O3b1s/hqdefault.jpg',
-      price: 45.6,
-      type: 3
-    });
-
-
-  }
-
 }
-
-
