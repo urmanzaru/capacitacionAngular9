@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductInt } from '../interfaces/productinterface';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-practice',
@@ -10,6 +11,14 @@ export class PracticeComponent implements OnInit {
 
   product: ProductInt;
   listProducts: ProductInt[] = [];
+  createProduct: ProductInt = {
+    name : '',
+    description: '',
+    type: null,
+    image: '',
+    price: 0
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -31,6 +40,14 @@ export class PracticeComponent implements OnInit {
       image: 'https://dam.cocinafacil.com.mx/wp-content/uploads/2019/06/Tlayuda-chapulines.jpg',
       price: 180,
     });
+  }
+
+  addProductWithForm(productForm: NgForm){
+    if(productForm.invalid){
+      console.log('El formulario no es válido.');
+      return;
+    }
+    this.listProducts.push(this.createProduct);
   }
 
   add3Productos(){
