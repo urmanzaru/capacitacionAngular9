@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{ProductItf} from './../interface/product.interface'
 import { from } from 'rxjs';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-practice',
   templateUrl: './practice.component.html',
@@ -10,6 +11,13 @@ export class PracticeComponent implements OnInit {
 var = '';
 product :ProductItf;
 listProducts: ProductItf[]=[];
+createProduct: ProductItf={
+  name:'',
+  description:'',
+  type: null,
+  image:'',
+  price: 0
+}
   constructor() { }
 
   ngOnInit(): void {
@@ -32,8 +40,18 @@ this.listProducts.push({
   price:120,
   type:1
 })
-
 }
+
+//ng Submit
+addProductWithForm(productForm :NgForm){
+  if (productForm.invalid){
+    console.log ('El formulario no es válido')
+    return;
+  }
+  this.listProducts.push(this.createProduct);
+}
+
+
 //areglo de producto
 add3Products() {
   this.listProducts.push({
