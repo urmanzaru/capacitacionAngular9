@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductInt } from '../interfaces/productinterface';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-practice',
@@ -19,9 +19,12 @@ export class PracticeComponent implements OnInit {
     price: 0
   }
 
+  formProduct: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.initForm();
     this.product = {
       name: 'Tlayuda de tasajo.',
       description: 'Tlayuda con tasajo para una persona',
@@ -30,6 +33,16 @@ export class PracticeComponent implements OnInit {
       type: 1
     }
     this.add3Productos();
+  }
+
+  initForm(){
+    this.formProduct = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.maxLength(60)]),
+    description: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+    type: new FormControl(null, Validators.required),
+    image: new FormControl('', Validators.required),
+    price: new FormControl(0, [Validators.required, Validators.min(1)]),
+    });
   }
 
   addProduct(){
@@ -48,6 +61,14 @@ export class PracticeComponent implements OnInit {
       return;
     }
     this.listProducts.push(this.createProduct);
+  }
+
+  addProductWithreactiveForm(){
+    if (this.formProduct.invalid){
+      console.log('El formulario no es valido.');
+      return;
+    }
+    this.listProducts.push(this.formProduct.value);
   }
 
   add3Productos(){

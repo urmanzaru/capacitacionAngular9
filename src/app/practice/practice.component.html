@@ -11,29 +11,59 @@
       <app-product-shared [product]="item"></app-product-shared>
     </div>
 
-    <form #productForm="ngForm" ngNativeValidate (ngSubmit)="addProductWithForm(productForm)">
-      <input type="text" name="image" placeholder="Imagen" [(ngModel)]="createProduct.image" required>
-      <input type="text" name="name" placeholder="Nombre" [(ngModel)]="createProduct.name" required maxlength="60">
-      <input type="text" name="description" placeholder="Descripción" [(ngModel)]="createProduct.description" required maxlength="250">
-      <input type="number" name="price" placeholder="Precio" [(ngModel)]="createProduct.price" required min="1">
-      <div>
-          <label for="tipo">Tipo:</label>
-            <select  id="tipo" name="type" [(ngModel)]="createProduct.type" required>
-              <option value="1">Comida</option>
-              <option value="2">Bebida</option>
-              <option value="3">Postre</option>
-            </select>
-        </div>
-        <button type="submit">AGREGAR PRODUCTO</button>
-        <div>
-          Form valid: {{productForm.valid}}
-          Form: {{productForm.value | json}}
-        </div>
-        <br>
-        <div>
-          Model
-        </div>
-        <br>
-    </form>
+    <div class="row">
+      <div class="col-1 col-md-6">
+        <h3>Formulario con plantilla</h3>
+        <form #productForm="ngForm" ngNativeValidate (ngSubmit)="addProductWithForm(productForm)">
+          <input type="text" name="image" placeholder="Imagen" [(ngModel)]="createProduct.image" required>
+          <input type="text" name="name" placeholder="Nombre" [(ngModel)]="createProduct.name" maxlength="60" required>
+          <input type="text" name="description" placeholder="Descripción" [(ngModel)]="createProduct.description" maxlength="250" required>
+          <input type="number" name="price" placeholder="Precio" [(ngModel)]="createProduct.price" min="1" required>
+          <div>
+              <label for="tipo">Tipo:</label>
+                <select  id="tipo" name="type" [(ngModel)]="createProduct.type" required>
+                  <option value="1">Comida</option>
+                  <option value="2">Bebida</option>
+                  <option value="3">Postre</option>
+                </select>
+            </div>
+            <button type="submit">AGREGAR PRODUCTO</button>
+            <div>
+              Form valid: {{productForm.valid}}
+              Form: {{productForm.value | json}}
+            </div>
+            <br>
+            <div>
+              Module create product: {{productForm.value | json}}
+            </div>
+            <br>
+        </form>
+      </div>
+    </div>
+<br>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h3>Formularios reactivos </h3>
+          <form [formGroup]="formProduct" ngNativeValidate (ngSubmit)="addProductWithreactiveForm()">
+            <input type="text" placeholder="Imagen" formControlName="image" required>
+            <input type="text" placeholder="Nombre" formControlName="name" maxlength="60" required>
+            <input type="text" placeholder="Descripción" formControlName="description" maxlength="250" required>
+            <input type="number" placeholder="Precio" formControlName="price" min="1" required>
+            <div>
+                <label for="tipo">Tipo:</label>
+                  <select  id="tipo" formControlName="type" required>
+                    <option value="1">Comida</option>
+                    <option value="2">Bebida</option>
+                    <option value="3">Postre</option>
+                  </select>
+              </div>
+              <button type="submit">AGREGAR PRODUCTO</button>
+                <br>
+                Form valid: {{formProduct.valid}}
+                Valor del formulario: {{formProduct.value | json}}
+          </form>
+      </div>
+    </div>
+
   </div>
 
