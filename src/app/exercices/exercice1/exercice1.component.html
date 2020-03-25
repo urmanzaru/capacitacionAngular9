@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-12 col-md-4">
+        <form [formGroup]="formProduct">
+            <input class="btn-block" type="text" placeholder="Imagen Url" formControlName="image">
+            <input class="btn-block" type="text" placeholder="Nombre" formControlName="name">
+            <input class="btn-block" type="text" placeholder="Descripción" formControlName="description">
+            <input class="btn-block" type="number" placeholder="Precio" formControlName="price">
+            <div class="btn-block"><label for="tipo">Tipo:</label>
+                <select id="tipo" formControlName="type">
+                <option value=1>Comidas</option>
+                <option value=2>Bebidas</option>
+                <option value=3>Postres</option>
+                </select></div>
+
+            <button class="btn-block" (click)="addProduct()">AGREGAR</button>
+        </form>
+    </div>
+    <div class="col-12 col-md-8">
+        <table>
+            <thead>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Tipo</th>
+            </thead>
+            <tbody *ngFor="let product of listProducts">
+                <td><img [src]="product.image" height="36px" width="48px"></td>
+                <td>{{product.name}}</td>
+                <td>{{product.price | currency}}</td>
+                <td>{{product.description}}</td>
+                <td>{{getTextType(product.type)}}</td>
+            </tbody>
+        </table>
+    </div>
+</div>

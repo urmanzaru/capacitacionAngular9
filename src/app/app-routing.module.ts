@@ -1,3 +1,4 @@
+import { Exercice1Component } from './exercices/exercice1/exercice1.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PracticeComponent } from './practice/practice.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'nav',
     component: NavigationComponent
+  },
+  {
+    path: 'exercise1',
+    component: Exercice1Component
   },
   {
     path: '**', redirectTo: '/access'
