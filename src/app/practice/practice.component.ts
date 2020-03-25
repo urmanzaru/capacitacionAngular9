@@ -1,5 +1,6 @@
 import {ProductItf} from '../interfaces/product.interface';
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms'
 
 
 @Component({
@@ -11,6 +12,13 @@ export class PracticeComponent implements OnInit {
 
 product:ProductItf;
 listProducts: ProductItf[] = [];
+createProduct: ProductItf = {
+name: '',
+description: '',
+image: '',
+price: 0,
+type: null,
+};
 
 constructor() { }
 
@@ -33,6 +41,14 @@ addProduct(){
     image: 'https://i.ytimg.com/vi/_4Mxp3rMiFQ/maxresdefault.jpg',
     price: 180,
   });
+}
+
+addProductWhithForms(productForm: NgForm){
+  if(productForm.invalid){
+    console.log ('el formulario es invaliddo')
+    return;
+  }
+this.listProducts.push(this.createProduct)
 }
 
 add3Productos(){
