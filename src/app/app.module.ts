@@ -6,14 +6,18 @@ import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PracticeComponent } from './practice/practice.component';
 import { ProductSharedComponent } from './shared/product-shared/product-shared.component';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { Exercise1Component } from './exercises/exercise1/exercise1.component';
+import { ProductSharedListComponent } from './shared/product-shared-list/product-shared-list.component'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavigationComponent,
     PracticeComponent,
-    ProductSharedComponent
+    ProductSharedComponent,
+    Exercise1Component,
+    ProductSharedListComponent
   ],
   imports: [
     BrowserModule,

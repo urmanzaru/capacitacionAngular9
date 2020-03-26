@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{ProductItf} from './../interface/product.interface'
 import { from } from 'rxjs';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-practice',
   templateUrl: './practice.component.html',
@@ -18,6 +18,8 @@ createProduct: ProductItf={
   image:'',
   price: 0
 }
+formProduct: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -29,7 +31,18 @@ this.product={
   price: 75.5,
   type: 2,
 }
+this.initForm();
 this.add3Products();
+}
+
+initForm(){
+  this.formProduct = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.maxLength(60)]),
+    description: new FormControl('',[Validators.required, Validators.maxLength(250)]),
+    type: new FormControl(null, Validators.required),
+    image: new FormControl('', Validators.required),
+    price: new FormControl(0, [Validators.required, Validators.min(1)])
+  })
 }
 //button
 addProduct(){
@@ -49,8 +62,17 @@ addProductWithForm(productForm :NgForm){
     return;
   }
   this.listProducts.push(this.createProduct);
+  productForm.reset();
 }
 
+addProductWithReactiveForm(){
+  if(this.formProduct.invalid){
+    console.log ('El formulario no es válido')
+    return;
+  }
+  this.listProducts.push(this.formProduct.value);
+  this.formProduct.reset();
+}
 
 //areglo de producto
 add3Products() {

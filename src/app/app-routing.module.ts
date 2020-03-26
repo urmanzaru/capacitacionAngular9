@@ -3,7 +3,7 @@ import { PracticeComponent } from './practice/practice.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import {Exercise1Component} from './exercises/exercise1/exercise1.component';
 const routes: Routes = [
   {
     path: 'access',
@@ -18,8 +18,13 @@ const routes: Routes = [
     component: NavigationComponent
   },
   {
+    path: 'exercises',
+    component: Exercise1Component
+  },
+  {
     path: '**', redirectTo: '/access'
   }
+
 ];
 
 @NgModule({
