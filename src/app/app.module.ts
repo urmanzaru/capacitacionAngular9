@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PracticeComponent } from './practice/practice.component';
 import { ProductSharedComponent } from './shared/product-shared/product-shared.component';
+import { Exercice1Component } from './exercices/exercice1/exercice1.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductSharedComponent } from './shared/product-shared/product-shared.c
     LoginComponent,
     NavigationComponent,
     PracticeComponent,
-    ProductSharedComponent
+    ProductSharedComponent,
+    Exercice1Component,
   ],
   imports: [
     BrowserModule,

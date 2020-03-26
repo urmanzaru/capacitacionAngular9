@@ -1,0 +1,36 @@
+<app-product-shared [product]="product"></app-product-shared>
+  <br>
+  <div class="fx-cv-sb">
+  </div>
+  <br>
+
+
+<div class="row">
+  <div class="col-12 col-md-16">
+    <h3> AGREGA TUS PRODUCTOS</h3>
+    <form #productForm="ngForm" ngNativeValidate (ngSubmit)="addProduct (productForm)">
+      <input type="text" name="image" placeholder="imagen" [(ngModel)]="createProduct.image" required>
+      <input type="text" name="name" placeholder="nombre" [(ngModel)]="createProduct.name"required maxlength="60">
+      <br>
+      <input type="text" name="description" placeholder="descripcion" [(ngModel)]="createProduct.description"required maxlength="250">
+      <input type="text" name="price" placeholder="precio" [(ngModel)]="createProduct.price" required min="1">
+      <div>
+      <label for="tipo" Tipo></label>
+      <select id="tipo" name="Type" [(ngModel)]="createProduct.type" required>
+             <option value=1 >Comida</option>
+             <option value=2 >Bebidas</option>
+             <option value=3 >Postres</option>
+      </select>
+</div>
+<button type="submit" > AGREGAR PRODUCTO</button>
+
+<div>
+  form valid: {{productForm.valid}} form: {{productForm.value | json}}
+</div>
+<div>
+  model create product: {{createProduct | json}}
+</div>
+</form>
+  </div>
+</div>
+

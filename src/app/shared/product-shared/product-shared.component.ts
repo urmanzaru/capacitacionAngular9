@@ -12,6 +12,7 @@ export class ProductSharedComponent implements OnInit {
   product: ProductItf;
   constructor() { }
 
+
   ngOnInit(): void {
   }
   getTextType(type:number){

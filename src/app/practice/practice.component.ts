@@ -1,6 +1,6 @@
 import {ProductItf} from '../interfaces/product.interface';
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms'
+import {NgForm, FormGroup, FormControl, Validators} from '@angular/forms'
 
 
 @Component({
@@ -20,9 +20,12 @@ price: 0,
 type: null,
 };
 
+formProduct: FormGroup;
+
 constructor() { }
 
 ngOnInit(): void {
+  this.initForm();
   this.product = {
     name: 'Tlayuda de tasajo.',
     description: 'una buena tlayuda para disfrutar',
@@ -31,6 +34,16 @@ ngOnInit(): void {
     type: 1
   }
   this.add3Productos();
+}
+
+initForm(){
+  this.formProduct = new FormGroup({
+    name: new FormControl('',[Validators.required, Validators.maxLength(60)]),
+    description: new FormControl('',[Validators.required, Validators.maxLength(250)]),
+    image: new FormControl ('',[Validators.required]),
+    price: new FormControl ('', [Validators.required, Validators.min(1)]),
+    type: new FormControl (null, [Validators.required])
+  })
 }
 
 addProduct(){
@@ -50,6 +63,15 @@ addProductWhithForms(productForm: NgForm){
   }
 this.listProducts.push(this.createProduct)
 }
+
+addProductWhithReactiveForm(){
+  if (this.formProduct.invalid){
+  console.log ('el formulario invalidado')
+  return;
+  }
+  this.listProducts.push(this.createProduct)
+}
+
 
 add3Productos(){
   this.listProducts.push({
