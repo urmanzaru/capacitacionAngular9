@@ -9,6 +9,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PracticeComponent } from './practice/practice.component';
 import { ProductSharedComponent } from './shared/product-shared/product-shared.component';
 import { Exercice1Component } from './exercices/exercice1/exercice1.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './app-material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { Exercice1Component } from './exercices/exercice1/exercice1.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    AppMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
