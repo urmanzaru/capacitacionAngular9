@@ -40,14 +40,18 @@ export class Exercice1Component implements OnInit {
   }
 
   getTextType(type:number){
-    if(type===1){
+    if(type==1){
       return 'Comidas';
     }
-    if(type===2){
+    if(type==2){
       return 'Bebidas';
     } else{
       return 'Postres';
     }
+  }
+
+  deleteProduct(index: number){
+    this.listProducts.splice(index, 1);
   }
 
 }

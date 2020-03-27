@@ -1,5 +1,4 @@
 <div style="padding: 20px 10%; width: 100%;">
-
     <app-product-shared [product]="product"></app-product-shared>
     <br>
     <div class="fx-cv-sb">
@@ -13,27 +12,50 @@
         </div>
     </div>
 
-    <form #productForm="ngForm" ngNativeValidate (ngSubmit)="addProductWithForm(productForm)">
-        <input type="text" name="image" placeholder="Imagen" [(ngModel)]="createProduct.image" required>
-        <input type="text" name="name" placeholder="Nombre" [(ngModel)]="createProduct.name" required maxlength="60">
-        <input type="text" name="description" placeholder="Descripción" [(ngModel)]="createProduct.description" required maxlength="250">
-        <input type="number" name="price" placeholder="Precio" [(ngModel)]="createProduct.price" required min="1">
-        <div>
-            <label for="tipo">Tipo:</label>
-            <select id="tipo" name="type" [(ngModel)]="createProduct.type" required>
-                    <option value=1>Comidas</option>
-                    <option value=2>Bebidas</option>
-                    <option value=3>Postres</option>
-                    </select>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h3>Formularios con plantillas</h3>
+            <form #productForm="ngForm" ngNativeValidate (ngSubmit)="addProductWithForm(productForm)">
+                <input type="text" name="image" placeholder="Imagen" [(ngModel)]="createProduct.image" required>
+                <input type="text" name="name" placeholder="Nombre" [(ngModel)]="createProduct.name" required maxlength="60">
+                <input type="text" name="description" placeholder="Descripción" [(ngModel)]="createProduct.description" required maxlength="250">
+                <input type="number" name="price" placeholder="Precio" [(ngModel)]="createProduct.price" required min="1">
+                <div>
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="type" [(ngModel)]="createProduct.type" required>
+                                    <option value=1>Comidas</option>
+                                    <option value=2>Bebidas</option>
+                                    <option value=3>Postres</option>
+                                    </select>
+                </div>
+                <button type="submit">AGREGAR PRODUCTO</button>
+            </form>
+            <div>
+                Form valid: {{productForm.valid}} Form: {{productForm.value | json}}
+            </div>
+            <div>
+                Model create product: {{createProduct | json}}
+            </div>
         </div>
-        <button type="submit">AGREGAR PRODUCTO</button>
-    </form>
-
-    <div>
-        Form valid: {{productForm.valid}} Form: {{productForm.value | json}}
-    </div>
-    <div>
-        Model create product: {{createProduct | json}}
+        <div class="col-12 col-md">
+            <h3>Formularios reactivos</h3>
+            <form [formGroup]="formProduct" ngNativeValidate (ngSubmit)="addProductWithReactiveForm()">
+                <input type="text" placeholder="Imagen" formControlName="image" required>
+                <input type="text" placeholder="Nombre" formControlName="name" required maxlength="60">
+                <input type="text" placeholder="Descripción" formControlName="description" required maxlength="250">
+                <input type="number" placeholder="Precio" formControlName="price" required min="1">
+                <div>
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" formControlName="type" required>
+                                        <option value=1>Comidas</option>
+                                        <option value=2>Bebidas</option>
+                                        <option value=3>Postres</option>
+                                        </select>
+                </div>
+                <button type="submit">AGREGAR PRODUCTO</button>
+            </form>
+            <br> Formulario valido: {{formProduct.valid}} <br> Valor del formulario: {{formProduct.value | json}}
+        </div>
     </div>
     <br>
     <br>

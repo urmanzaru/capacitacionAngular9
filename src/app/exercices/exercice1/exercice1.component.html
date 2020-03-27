@@ -1,21 +1,23 @@
-<div class="row">
+<div class="row" style="padding: 40px 10%;">
     <div class="col-12 col-md-4">
+        <h3>Crear producto</h3>
         <form [formGroup]="formProduct">
-            <input class="btn-block" type="text" placeholder="Imagen Url" formControlName="image">
-            <input class="btn-block" type="text" placeholder="Nombre" formControlName="name">
-            <input class="btn-block" type="text" placeholder="Descripción" formControlName="description">
-            <input class="btn-block" type="number" placeholder="Precio" formControlName="price">
-            <div class="btn-block"><label for="tipo">Tipo:</label>
-                <select id="tipo" formControlName="type">
+            <input class="mat-form" type="text" placeholder="Imagen Url" formControlName="image">
+            <input class="mat-form" type="text" placeholder="Nombre" formControlName="name">
+            <input class="mat-form" type="text" placeholder="Descripción" formControlName="description">
+            <input class="mat-form" type="number" placeholder="Precio" formControlName="price">
+            <div class="mat-form"><label for="tipo">Tipo:</label>
+                <select class="mat-form" id="tipo" formControlName="type">
                 <option value=1>Comidas</option>
                 <option value=2>Bebidas</option>
                 <option value=3>Postres</option>
                 </select></div>
-
-            <button class="btn-block" (click)="addProduct()">AGREGAR</button>
+            <br>
+            <button class="mat-form" (click)="addProduct()">AGREGAR</button>
         </form>
     </div>
     <div class="col-12 col-md-8">
+        <h3>Lista de productos</h3>
         <table>
             <thead>
                 <th>Imagen</th>
@@ -23,13 +25,15 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>Tipo</th>
+                <th>Acciones</th>
             </thead>
-            <tbody *ngFor="let product of listProducts">
+            <tbody *ngFor="let product of listProducts; let i=index;">
                 <td><img [src]="product.image" height="36px" width="48px"></td>
                 <td>{{product.name}}</td>
                 <td>{{product.price | currency}}</td>
                 <td>{{product.description}}</td>
                 <td>{{getTextType(product.type)}}</td>
+                <td><button type="button" (click)="deleteProduct(i)">ELIMINAR</button></td>
             </tbody>
         </table>
     </div>
