@@ -17,9 +17,6 @@ export class ProductSharedListComponent implements OnInit {
   ngOnInit(): void {
   }
   deleteProduct(){
-    this.listProducts.pop(
-
-
-    )
+    this.listProducts.splice(5,5)
     }
 }
