@@ -10,9 +10,12 @@ export class ProductSharedListComponent implements OnInit {
 
 
   @Input()
+
   product: ProductInt;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 }

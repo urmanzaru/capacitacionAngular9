@@ -10,6 +10,8 @@ import { PracticeComponent } from './practice/practice.component';
 import { ProductSharedComponent } from './shared/product-shared/product-shared.component';
 import { Exercise1Component } from './exercises/exercise1/exercise1.component';
 import { ProductSharedListComponent } from './shared/product-shared-list/product-shared-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ProductSharedListComponent } from './shared/product-shared-list/product
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

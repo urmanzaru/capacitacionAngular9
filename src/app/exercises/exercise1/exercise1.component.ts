@@ -34,4 +34,11 @@ export class Exercise1Component implements OnInit {
     }
     this.listProducts.push(this.createProduct);
   }
+
+  deleteProduct(productForm: NgForm){
+    if(productForm.valid){
+      console.log('Formulario valido.');
+    }
+    this.listProducts.splice;
+  }
 }

@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div style="padding: 10; padding-top: 50;">
+  <div class="row fx-cv-ch">
+    <div class="col-12-col-xd-4">
+      <div class="mat-elevation-z1 bg-main pd-general">
+        <div  class="col-12-col-xd-4">
+          <h2 style="align-items: center; align-self: center; align-content: center;">INICIO DE SESIÓN</h2>
+        </div>
+          <form>
+            <mat-form-field class="mat-form">
+              <input matInput placeholder="Usuario" type="text">
+            </mat-form-field>
+            <mat-form-field class="mat-form">
+              <input matInput placeholder="Contraseña"  [type]="hide ? 'password' : 'text'">
+
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button class="block-button" mat-flat-button color="accent">Inicar sesión</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
