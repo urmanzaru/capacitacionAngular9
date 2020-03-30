@@ -12,6 +12,11 @@ import { Exercise1Component } from './exercises/exercise1/exercise1.component';
 import { ProductSharedListComponent } from './shared/product-shared-list/product-shared-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
+import { ProductsComponent } from './product/products/products.component';
+import { NewProductComponent } from './product/new-product/new-product.component';
+import { ProductDetailComponent } from './waiter/product-detail/product-detail.component';
+import { OrdersComponent } from './waiter/orders/orders.component';
+import { ProductsWComponent} from './waiter/products-w/products-w.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { AppMaterialModule } from './app-material.module';
     PracticeComponent,
     ProductSharedComponent,
     Exercise1Component,
-    ProductSharedListComponent
+    ProductSharedListComponent,
+    ProductsComponent,
+    NewProductComponent,
+    ProductDetailComponent,
+    OrdersComponent,
+    ProductsWComponent
   ],
   imports: [
     BrowserModule,

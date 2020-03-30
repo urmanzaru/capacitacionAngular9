@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Nuevo producto</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div style=" text-align: center; padding-left: 20px; padding-right: 20px; padding-top: 50px;">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <img src="https://dam.cocinafacil.com.mx/wp-content/uploads/2019/06/Tlayuda-chapulines.jpg" width="300px" height="200px">
+      <form class="newProduct-form">
+        <mat-form-field >
+          <mat-label>Link</mat-label>
+          <input matInput placeholder="Ex. Pizza">
+        </mat-form-field> <br>
+        <mat-form-field >
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput >
+        </mat-form-field> <br>
+        <mat-form-field >
+          <mat-label>Tipo</mat-label>
+          <input type="text" matInput >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Precio</mat-label>
+          <input type="number" matInput >
+        </mat-form-field> <br>
+        <mat-form-field >
+          <mat-label>Descripción</mat-label>
+          <input type="text" matInput >
+        </mat-form-field><br>
+        <button mat-raised-button color="primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
