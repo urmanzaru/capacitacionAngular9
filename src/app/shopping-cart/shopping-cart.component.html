@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">NUEVO PRODUCTO</a>
+  <a class="navbar-brand" href="#">CARRITO</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,10 +7,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
       </li>
 
     </ul>
@@ -23,51 +21,56 @@
 
 <div style="padding: 10%;">
   <div class="row fx-cv-ch">
-    <div class="col-12 col-md-14">
+    <div class="col-14 col-md-14">
       <div class="mat-elevation-z1 bg-main pd-general">
        <div class="row justify-content-center">
         <img src="https://elgourmet.s3.amazonaws.com/recetas/cover/mole-_9IMJjkql3RCWT1eg6AHUD8PKyZLh7o.png" width="350px" height="300px">
        </div>
-       <div class="row justify-content-end">
-         <div class="col-3">
-          <mat-icon>add_photo_alternate</mat-icon>
-         </div>
-       </div>
-        <form>
+
+
+       <form>
 
           <mat-form-field class="mat-form">
-            <input matInput placeholder="Nombre" type="text">
+            <input matInput placeholder="Nombre" type="text">Mole de pollo
           </mat-form-field>
 
           <mat-form-field class="mat-form">
-            <input matInput placeholder="Descripción">
+            <input matInput placeholder="Descripción"> Mole negro
           </mat-form-field>
-          <div class="row">
-        <div class="col-4">
+
+       <div class="row justify-content-start">
+
+        <div class="col-3">
           <mat-form-field class="mat-form">
-            <mat-label>Tipo</mat-label>
-
-            <mat-select >
-              <mat-option value="option1">Comida típica</mat-option>
-              <mat-option value="option3">Bebida</mat-option>
-              <mat-option value="option3">Postre</mat-option>
-            </mat-select>
-
+            <input matInput placeholder="Tipo"> Comida Tipica
           </mat-form-field>
         </div>
 
-        <div class="col align-self-end">
+        <div class="col -3">
           <mat-form-field class="mat-form">
-            <input matInput placeholder="Precio">
+            <input matInput placeholder="Precio">{{'200'|currency}}
           </mat-form-field>
-
         </div>
+
+        <div class="col -3">
+          <mat-form-field class="mat-form">
+            <input matInput placeholder="Cantidad">3
+          </mat-form-field>
+        </div>
+
+
       </div >
+
       <div class="row justify-content-end">
-      <div class="col-4" >
-          <button class="button" mat-flat-button color="primary">CREAR</button>
+      <div class="col-3" >
+          <button class="button" mat-flat-button color="primary">CANCELAR </button>
       </div>
+      <div class="col-3" >
+        <button class="button" mat-flat-button color="primary">AGREGAR</button>
     </div>
+    </div>
+
+
         </form>
       </div>
     </div>

@@ -6,6 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {Exercise1Component} from './exercises/exercise1/exercise1.component';
 import {ProductComponent} from './product/product.component';
 import {  CreateProductComponent} from "./create-product/create-product.component";
+import { AllProductsComponent } from "./all-products/all-products.component";
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { BuyComponent } from './buy/buy.component';
+
 
 const routes: Routes = [
   {
@@ -31,6 +35,18 @@ const routes: Routes = [
   {
     path: 'createproduct',
     component: CreateProductComponent
+  },
+  {
+    path: 'allproducts',
+    component: AllProductsComponent
+  },
+  {
+    path: 'shopping',
+    component: ShoppingCartComponent
+  },
+  {
+    path: 'buy',
+    component: BuyComponent
   },
   {
     path: '**', redirectTo: '/access'

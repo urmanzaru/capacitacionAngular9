@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppMaterialModule  } from "./app-material.module";
 import { ProductComponent } from "./product/product.component";
 import { CreateProductComponent  } from "./create-product/create-product.component";
+import { AllProductsComponent } from "./all-products/all-products.component";
+import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
+import {  BuyComponent } from "./buy/buy.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { CreateProductComponent  } from "./create-product/create-product.compone
     Exercise1Component,
     ProductSharedListComponent,
     ProductComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    AllProductsComponent,
+    ShoppingCartComponent,
+    BuyComponent
 
   ],
   imports: [

@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -22,7 +23,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatTableModule,
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
 
   ]
 })
