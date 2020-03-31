@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">NUEVO PRODUCTO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar Producto</button>
+    </form>
+  </div>
+</nav>
+
+<div style="padding: 10%;">
+  <div class="row fx-cv-ch">
+    <div class="col-12 col-md-14">
+      <div class="mat-elevation-z1 bg-main pd-general">
+       <div class="row justify-content-center">
+        <img src="https://elgourmet.s3.amazonaws.com/recetas/cover/mole-_9IMJjkql3RCWT1eg6AHUD8PKyZLh7o.png" width="350px" height="300px">
+       </div>
+       <div class="row justify-content-end">
+         <div class="col-3">
+          <mat-icon>add_photo_alternate</mat-icon>
+         </div>
+       </div>
+        <form>
+
+          <mat-form-field class="mat-form">
+            <input matInput placeholder="Nombre" type="text">
+          </mat-form-field>
+
+          <mat-form-field class="mat-form">
+            <input matInput placeholder="Descripción">
+          </mat-form-field>
+          <div class="row">
+        <div class="col-4">
+          <mat-form-field class="mat-form">
+            <mat-label>Tipo</mat-label>
+
+            <mat-select >
+              <mat-option value="option1">Comida típica</mat-option>
+              <mat-option value="option3">Bebida</mat-option>
+              <mat-option value="option3">Postre</mat-option>
+            </mat-select>
+
+          </mat-form-field>
+        </div>
+
+        <div class="col align-self-end">
+          <mat-form-field class="mat-form">
+            <input matInput placeholder="Precio">
+          </mat-form-field>
+
+        </div>
+      </div >
+      <div class="row justify-content-end">
+      <div class="col-4" >
+          <button class="button" mat-flat-button color="accent">CREAR</button>
+      </div>
+    </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

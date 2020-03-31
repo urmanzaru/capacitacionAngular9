@@ -4,6 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {Exercise1Component} from './exercises/exercise1/exercise1.component';
+import {ProductComponent} from './product/product.component';
+import {  CreateProductComponent} from "./create-product/create-product.component";
+
 const routes: Routes = [
   {
     path: 'access',
@@ -20,6 +23,14 @@ const routes: Routes = [
   {
     path: 'exercises',
     component: Exercise1Component
+  },
+  {
+    path: 'product',
+    component: ProductComponent
+  },
+  {
+    path: 'createproduct',
+    component: CreateProductComponent
   },
   {
     path: '**', redirectTo: '/access'

@@ -11,6 +11,8 @@ import { Exercise1Component } from './exercises/exercise1/exercise1.component';
 import { ProductSharedListComponent } from './shared/product-shared-list/product-shared-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppMaterialModule  } from "./app-material.module";
+import { ProductComponent } from "./product/product.component";
+import { CreateProductComponent  } from "./create-product/create-product.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { AppMaterialModule  } from "./app-material.module";
     PracticeComponent,
     ProductSharedComponent,
     Exercise1Component,
-    ProductSharedListComponent
+    ProductSharedListComponent,
+    ProductComponent,
+    CreateProductComponent
+
   ],
   imports: [
     BrowserModule,
