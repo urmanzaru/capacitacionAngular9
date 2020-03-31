@@ -16,7 +16,7 @@ import { CreateProductComponent  } from "./create-product/create-product.compone
 import { AllProductsComponent } from "./all-products/all-products.component";
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 import {  BuyComponent } from "./buy/buy.component";
-
+import { ListBuyComponent } from "./list-buy/list-buy.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,8 @@ import {  BuyComponent } from "./buy/buy.component";
     CreateProductComponent,
     AllProductsComponent,
     ShoppingCartComponent,
-    BuyComponent
+    BuyComponent,
+    ListBuyComponent
 
   ],
   imports: [

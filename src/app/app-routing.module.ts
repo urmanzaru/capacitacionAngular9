@@ -9,7 +9,7 @@ import {  CreateProductComponent} from "./create-product/create-product.componen
 import { AllProductsComponent } from "./all-products/all-products.component";
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { BuyComponent } from './buy/buy.component';
-
+import { ListBuyComponent } from "./list-buy/list-buy.component";
 
 const routes: Routes = [
   {
@@ -47,6 +47,10 @@ const routes: Routes = [
   {
     path: 'buy',
     component: BuyComponent
+  },
+  {
+    path: 'listbuy',
+    component: ListBuyComponent
   },
   {
     path: '**', redirectTo: '/access'
