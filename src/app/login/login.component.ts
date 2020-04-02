@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "./../services/user.service";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+formLogin: FormGroup;
+
+  constructor(public userService : UserService, private _fb:FormBuilder) { }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm (){
+    this.formLogin = this._fb.group({
+      username:['', Validators.required],
+      password:['', Validators.required]
+    })
+  }
+
+  sendLogin(){
+    this.userService.login(this.formLogin.value).subscribe((resp:any)=>{
+      if(resp){
+        console.log('paso login');
+
+      }
+    },(error)=>{
+      console.log('error');
+
+    });
+
   }
 
 }

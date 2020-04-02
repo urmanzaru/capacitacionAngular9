@@ -17,6 +17,8 @@ import { AllProductsComponent } from "./all-products/all-products.component";
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 import {  BuyComponent } from "./buy/buy.component";
 import { ListBuyComponent } from "./list-buy/list-buy.component";
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { ListBuyComponent } from "./list-buy/list-buy.component";
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HttpClientModule
 
   ],
   providers: [],

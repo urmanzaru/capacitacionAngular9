@@ -3,12 +3,12 @@
     <div class="col-12 col-md-14">
       <div class="mat-elevation-z1 bg-main pd-general">
         <h1>INICIO DE SESIÓN</h1>
-        <form>
+        <form [formGroup]="formLogin" (ngSubmit)="sendLogin()">
           <mat-form-field class="mat-form">
-            <input matInput placeholder="Usuario" type="text">
+            <input matInput placeholder="Usuario" type="text" formControlName="username">
           </mat-form-field>
           <mat-form-field class="mat-form">
-            <input matInput placeholder="Contraseña">
+            <input matInput placeholder="Contraseña" type="password" formControlName="password">
           </mat-form-field>
           <button class="block-button" mat-flat-button color="accent">LOGIN</button>
         </form>
