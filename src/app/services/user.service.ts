@@ -11,4 +11,9 @@ export class UserService {
   login(body:any){
 return this._http.post(environment.server + 'login', body)
   }
+
+  createProduct(){
+    return this._http.get(environment.server + 'allproducts')
+
+  }
 }

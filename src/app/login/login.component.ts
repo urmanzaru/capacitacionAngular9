@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from "./../services/user.service";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
 formLogin: FormGroup;
 
-  constructor(public userService : UserService, private _fb:FormBuilder) { }
+  constructor(public userService : UserService, private router: Router, private _fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -34,8 +34,14 @@ formLogin: FormGroup;
     },(error)=>{
       console.log('error');
 
-    });
+    },
+    ()=> this.navigate()
+    );
 
   }
+  navigate(){
+    this.router.navigateByUrl('/allproducts');
+  }
+
 
 }
