@@ -5,18 +5,17 @@
         <div  class="col-12-col-xd-4">
           <h2 style="align-items: center; align-self: center; align-content: center;">INICIO DE SESIÓN</h2>
         </div>
-          <form>
+          <form [formGroup]="formLogin" (ngSubmit)="sendLogin()">
             <mat-form-field class="mat-form">
-              <input matInput placeholder="Usuario" type="text">
+              <input matInput placeholder="Usuario" formControlName="username" type="text">
             </mat-form-field>
             <mat-form-field class="mat-form">
-              <input matInput placeholder="Contraseña"  [type]="hide ? 'password' : 'text'">
-
+              <input matInput placeholder="Contraseña" formControlName="password" [type]="hide ? 'password' : 'text'">
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
-            <button class="block-button" routerLink="/product" mat-flat-button color="accent">Inicar sesión</button>
+            <button class="block-button" mat-flat-button color="accent">Inicar sesión</button>
           </form>
       </div>
     </div>
