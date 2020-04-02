@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { error } from '@angular/compiler/src/util';
+
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
 
-  constructor(public userService : UserService, private _fb:FormBuilder) { }
+  constructor(public userService : UserService, private _fb:FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -29,14 +31,18 @@ export class LoginComponent implements OnInit {
   sendLogin(){
     this.userService.login(this.formLogin.value).subscribe((resp:any)=>{
       if(resp){
-        console.log('paso login');
+        console.log('Sesión iniciada.');
 
       }
     },(error)=>{
-      console.log('error');
+      console.log('Error al iniciar sesión');
 
-    });
+    },
+    () => this.navigate()
+    );
 
   }
-
+  navigate() {
+    this.router.navigateByUrl('/product');
+}
 }

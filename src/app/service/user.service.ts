@@ -12,4 +12,17 @@ export class UserService {
   login(body:any){
    return this._http.post(environment.server + 'login', body)
   }
+
+  getProducts(){
+    return this._http.get(environment.server + 'product')
+  }
+
+  // showConfig() {
+  //   this.userService.getProducts()
+  //     .subscribe((data: Config) => this.config = {
+  //         heroesUrl: data[environment.server +'heroesUrl'],
+  //         textfile:  data['textfile']
+  //     });
+  // }
+
 }
