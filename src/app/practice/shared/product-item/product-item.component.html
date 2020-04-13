@@ -1,0 +1,9 @@
+<img [src]="product.image" height="200px;" width="100%;" alt="">
+<div class="pd-g-h">
+    <p class="fx-ch"><b>{{product.name}}</b></p>
+    <p>{{product.description}}</p>
+    <div class="fx-cv-sb">
+        <p style="color: lightsalmon;"><b>{{product.price | currency}}</b></p>
+        <p>{{product.type==1?'Comida':product.type==2?'Bebida':'Postre'}}</p>
+    </div>
+</div>

@@ -1,1 +1,28 @@
-<p>practice works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <h2>Crear producto</h2>
+            <app-form-product (evProduct)="getProductOfForm($event)"></app-form-product>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="container">
+                <div class="fx-cv-sb">
+                    <h2>Productos</h2>
+                    <div class="fx-cv">
+                        <button (click)="addProduct()">AGREGAR</button>
+                    </div>
+                </div>
+                <div class="alert-info" *ngIf="listProducts.length==0">No hay productos</div>
+                <div class="row">
+                    <div *ngFor="let product of listProducts" class="col-12 col-md-4 pd-general">
+                        <div>
+                            <app-product-item [product]="product"></app-product-item>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

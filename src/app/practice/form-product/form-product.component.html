@@ -1,0 +1,15 @@
+<form ngNativeValidate (ngSubmit)="saveProduct()">
+    <input class="mat-form" name="image" [(ngModel)]="product.image" style="margin-bottom: 10px;" type="text" placeholder="Url imagen" required>
+    <input class="mat-form" name="name" [(ngModel)]="product.name" style="margin-bottom: 10px;" type="text" placeholder="Nombre" required>
+    <input class="mat-form" name="description" [(ngModel)]="product.description" style="margin-bottom: 10px;" type="text" placeholder="Descripción" required>
+    <input class="mat-form" name="price" [(ngModel)]="product.price" style="margin-bottom: 10px;" type="number" placeholder="Precio" required min="1">
+    <div>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" class="mat-form" [(ngModel)]="product.type" name="type" required>
+                            <option value=1>Comidas</option>
+                            <option value=2>Bebidas</option>
+                            <option value=3>Postres</option>
+                            </select>
+    </div>
+    <button type="submit">GUARDAR PRODUCTO</button>
+</form>

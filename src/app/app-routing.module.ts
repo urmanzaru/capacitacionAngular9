@@ -1,5 +1,5 @@
-import { NavigationComponent } from './navigation/navigation.component';
 import { PracticeComponent } from './practice/practice.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,12 +10,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'practice',
-    component: PracticeComponent
-  },
-  {
     path: 'nav',
     component: NavigationComponent
+  },
+  {
+    path: 'practice',
+    component: PracticeComponent
   },
   {
     path: '**', redirectTo: '/access'
