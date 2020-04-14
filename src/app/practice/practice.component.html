@@ -1,1 +1,36 @@
-<p>practice works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <h1 style="text-align: center; margin-bottom: 70px;">Crear Producto</h1>
+      <app-form-product (evProduct)="getProductofForm($event)"></app-form-product >
+    </div>
+      <div class="col-12 col-md-8">
+        <h1 style="text-align: center;"> Lista de Productos</h1>
+        <div style="text-align: center; margin-top: 30px;" class="row">
+          <div class="col-sm" >
+            <body><b>Imagen</b></body>
+          </div>
+          <div class="col-sm" >
+            <body><b>Nombre</b></body>
+          </div>
+          <div class="col-sm">
+            <body><b>Descripción</b></body>
+          </div>
+          <div class="col-sm">
+            <body><b>Precio</b></body>
+          </div>
+          <div class="col-sm">
+            <body><b>Tipo</b></body>
+          </div>
+        </div>
+        <hr align="center" noshade="noshade" size="3" width="95%" />
+          <div *ngFor="let product of listProduct">
+            <app-product-item [product]="product"></app-product-item>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+

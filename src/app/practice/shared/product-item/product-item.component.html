@@ -1,0 +1,16 @@
+ <div style="text-align: center; margin-top: 20px;" class="row">
+  <div class="col-sm">
+  <img [src]="product.image" height="60px;" width="100px;" alt="">
+  </div>
+  <div class="col-sm">
+  <p>{{product.name}}</p></div>
+  <div class="col-sm">
+<p>{{product.description}}</p></div>
+<div class="col-sm">
+<p>{{product.price | currency}}</p></div>
+<div class="col-sm">
+  <p>{{product.type==1?'Comida':product.type==2?'Bebida':'Postre'}}</p>
+  </div>
+</div>
+<hr align="center"  size="1" width="95%" />
+
