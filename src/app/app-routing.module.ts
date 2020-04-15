@@ -3,11 +3,21 @@ import { PracticeComponent } from './practice/practice.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { LogInComponent } from './login/log-in/log-in.component';
 
 const routes: Routes = [
   {
     path: 'access',
     component: LoginComponent
+  },
+  {
+    path: 'access/signup',
+    component: SignUpComponent
+  },
+  {
+    path: 'access/login',
+    component: LogInComponent
   },
   {
     path: 'practice',
