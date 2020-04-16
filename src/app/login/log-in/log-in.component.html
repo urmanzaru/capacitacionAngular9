@@ -5,12 +5,12 @@
         <h1>Logo</h1>
       </div>
       <div>
-        <form>
+        <form  [formGroup]="formLogin" (ngSubmit)="sendLogin()">
           <label class="m-3">Email</label>
-          <input class="mat-form" style="margin-bottom:15px" type="text" placeholder="">
+          <input class="mat-form" style="margin-bottom:15px" type="text" placeholder="" formControlName="username">
           <label class="m-3">Password</label>
-          <input class="mat-form" style="margin-bottom:15px" type="text" placeholder="">
-          <button style="margin-bottom: 25px; height: 6vh; width: 100%; background-color: transparent; color: black; " mat-raised-button (click)="login()">REGISTRATE</button>
+          <input class="mat-form" style="margin-bottom:15px" type="password" placeholder="" formControlName="password">
+          <button style="margin-bottom: 25px; height: 6vh; width: 100%; background-color: transparent; color: black; " mat-raised-button>REGISTRATE</button>
         </form>
       </div>
     </div>

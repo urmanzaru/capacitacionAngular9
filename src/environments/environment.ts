@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  server:'https://visorus.com.mx/demouri/api'
+  server:'https://visorus.com.mx/demouri/api/'
 };
 
 /*
