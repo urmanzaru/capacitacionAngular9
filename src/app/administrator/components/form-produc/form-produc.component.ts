@@ -12,9 +12,12 @@ export class FormProducComponent implements OnInit {
 
   editMode: boolean;
   paramId: number;
-  constructor( private _activateRoute: ActivatedRoute) { }
+
+  listType = [ {value: 'Comida', type:1}, {value: 'Bebida', type:2}, {value: 'Postre', type:3}]
 
   product: ProductInt ;
+
+  constructor( private _activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.checkParams();
