@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../service/user.service';
+import { UserService } from '../services/user.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
 
-  constructor(public userService : UserService, private _fb:FormBuilder, private router: Router) { }
+  constructor(public userService : UserService, private _fb:FormBuilder, private _router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -32,17 +32,15 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.formLogin.value).subscribe((resp:any)=>{
       if(resp){
         console.log('Sesión iniciada.');
+        //navegar a rol
+        if(this.userService.isAdmin()) this._router.navigateByUrl('/admin');
+        if(this.userService.isWaiter()) this._router.navigateByUrl('/mesero');
+        if(this.userService.isCashier()) this._router.navigateByUrl('/cajero');
 
       }
     },(error)=>{
       console.log('Error al iniciar sesión');
 
-    },
-    () => this.navigate()
-    );
-
+    });
   }
-  navigate() {
-    this.router.navigateByUrl('/product');
-}
 }

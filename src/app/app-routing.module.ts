@@ -9,6 +9,7 @@ import { OrdersComponent } from './waiter/orders/orders.component';
 import { ProductsWComponent } from './waiter/products-w/products-w.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginGuard } from './services/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -18,6 +19,28 @@ const routes: Routes = [
   {
     path: 'practice',
     component: PracticeComponent
+  },
+  {
+    path: '',
+    component: NavigationComponent,
+    canActivate: [LoginGuard], //guards
+    children: [
+      {
+        path: 'admin',
+        //Carga componente admin
+        loadChildren: ()=> import('./administrator/administrator-routing.module').then(m=>m.AdministratorRoutingModule)
+      },
+      {
+        path: 'mesero',
+        //Carga componente mesero
+        loadChildren: ()=>import('./waiter/waiter-routing.module').then(m=>m.WaiterRoutingModule)
+      },
+      {
+        path: 'cajero',
+        //Carga componente cajero
+        loadChildren: ()=>import('./cashier/cashier-routing.module').then(m=>m.CashierRoutingModule)
+      },
+    ]
   },
   {
     path: 'nav',
