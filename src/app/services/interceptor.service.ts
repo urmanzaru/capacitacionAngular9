@@ -11,7 +11,8 @@ export class InterceptorService implements HttpInterceptor {
 
   intercept(req: import("@angular/common/http").HttpRequest<any>, next: import("@angular/common/http").HttpHandler): import("rxjs").Observable<import("@angular/common/http").HttpEvent<any>> {
 
-    if(this._userService.checkToken){
+    if(this._userService.checkToken()){
+      console.log('SE ejecutó el interceptor');
       let cloned;
       cloned = req.clone({
         headers: req.headers.set('Authorization', 'Bearer' + this._userService.access_token)
@@ -20,8 +21,5 @@ export class InterceptorService implements HttpInterceptor {
     }
     return next.handle(req);
   }
-
-
-
 
 }

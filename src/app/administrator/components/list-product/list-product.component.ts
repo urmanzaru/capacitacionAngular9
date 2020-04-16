@@ -12,7 +12,7 @@ export class ListProductComponent implements OnInit {
 
   displayedColumns:string[] = ['foto', 'nombre','descripcion','precio','tipo','estado','acciones']
   dataSource: MatTableDataSource<any>;
-  listProduct: ProductInt[] = [ ];
+  listProduct: ProductInt[] = []; //Llamar de la API
 
    // MatPaginator Inputs
    length = 0;

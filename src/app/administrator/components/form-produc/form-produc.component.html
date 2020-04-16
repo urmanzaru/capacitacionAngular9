@@ -1,3 +1,39 @@
-<p>form-produc works!</p>
 <div *ngIf="editMode">Estás editando el producto con id</div>
 <div *ngIf="!editMode">Estás creando un nuevo producto.</div>
+
+<div class="mat-elevation-z1">
+  <div class="fx-cv-sb pd-general">
+    <div><b>Producto</b></div>
+    <button mat-raised-button color="acent">GUARDAR</button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 fx-cv-ch">
+        <img src="https://www.turimexico.com/wp-content/uploads/2016/09/Receta-Tlayuda-con-Tasajo-jps" width="100%" height="">
+      </div>
+    <div class="col-12 col-md-8">
+      <mat-form-field class="mat-form">
+        <input matInput placeholder="Url de imagen" type="text" [(ngModel)]="product.image">
+      </mat-form-field>
+      <mat-form-field class="mat-form">
+        <input matInput placeholder="Nombre" type="text" [(ngModel)]="product.name">
+      </mat-form-field>
+      <mat-form-field class="mat-form">
+        <mat-label>Tipo de producto</mat-label>
+        <mat-select [(ngModel)]="product.type">
+          <mat-option *ngFor="let item of listType" [value]="item.type">
+            {{item.value}}
+          </mat-option>
+        </mat-select>
+        <mat-form-field class="mat-form">
+          <input matInput placeholder="Precio" type="number" [(ngModel)]="product.price">
+        </mat-form-field>
+        <mat-form-field class="mat-form">
+          <mat-label>Descripción del producto</mat-label>
+          <input matInput placeholder="Piensa en lo mejor de tu producto" type="text" [(ngModel)]="product.description">
+        </mat-form-field>
+      </mat-form-field>
+    </div>
+    </div>
+  </div>
+</div>

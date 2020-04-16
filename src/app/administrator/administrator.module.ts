@@ -6,6 +6,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { AdministratorMaterialModule } from './administrator-material.module';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { FormProducComponent } from './components/form-produc/form-produc.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ProductsComponent, ListProductComponent, FormProducComponent],
@@ -13,6 +14,7 @@ import { FormProducComponent } from './components/form-produc/form-produc.compon
     CommonModule,
     AdministratorRoutingModule,
     AdministratorMaterialModule,
+    FormsModule
 
   ]
 })
