@@ -9,8 +9,8 @@ export class ProductService {
 
   constructor(private _http: HttpClient) { }
 
-getListProducts(){
-return this._http.get(environment.server+'product');
+getListProducts(offset: number, max:number){
+return this._http.get(environment.server+'product?offset=' + offset +'&max=' + max);
 }
 
 

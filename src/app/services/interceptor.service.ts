@@ -16,7 +16,7 @@ console.log('se ejecuta');
     if(this._userService.checkToken()){
 let cloned;
 cloned = req.clone({
-  headers: req.headers.set('Authorization','Bearer'+ this._userService.access_token)
+  headers: req.headers.set('Authorization' , 'Bearer ' + this._userService.access_token)
 });
 return next.handle(cloned);
 }

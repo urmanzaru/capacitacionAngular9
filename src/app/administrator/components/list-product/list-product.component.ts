@@ -13,8 +13,8 @@ export class ListProductComponent implements OnInit {
  dataSource: MatTableDataSource<any>;
   listProduct: ProductItf[]=[];
   length=0;
-  pageSize=10;
-  pageSizeOptions=[10,15,20];
+  pageSize=5;
+  pageSizeOptions=[5,10,20];
   pageIndex=0;
   constructor(public productService: ProductService ) { }
 
@@ -23,14 +23,19 @@ export class ListProductComponent implements OnInit {
     this.getProducts();
   }
   getEventPage( evt:any){
+    console.log('event', evt);
 
+    this.pageIndex = evt.pageIndex;
+    this.length = null;
+    this.pageSize= evt.pageSize;
+    this.getProducts();
   }
 
   getProducts(){
-    this.productService.getListProducts().subscribe((resp:any)=>{
-      if(resp.data){
-        this.listProduct = resp.data;
-      }
+    this.productService.getListProducts((this.pageIndex * this.pageSize), this.pageSize).subscribe((resp:any)=>{
+
+      this.listProduct = resp.data;
+      this.length = resp.total;
       this.setDataSource();
     },(error)=>{
 
