@@ -73,6 +73,9 @@ export class UserService {
     return this.jwt.username;
   }
 
+  get access_token(){
+    return this.jwt.access_token;
+  }
 
   getProducts(){
     return this._http.get(environment.server + 'product')

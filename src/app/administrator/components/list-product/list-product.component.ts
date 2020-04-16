@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductInt} from './../../../interfaces/productinterface';
 import { ProductService } from 'src/app/services/product/product.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-list-product',
@@ -10,31 +11,49 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ListProductComponent implements OnInit {
 
   displayedColumns:string[] = ['foto', 'nombre','descripcion','precio','tipo','estado','acciones']
-  dataSource: ProductInt[] = [
-    {
-      image: 'https://www.eluniversal.com.mx/sites/default/files/styles/f01-1023x630/public/2019/05/28/tejate_1.jpg?itok=Udpf2IKh',
-      name: 'Tejate',
-      description: 'Bebida de los dioses',
-      price: 45,
-      type: 3,
-      status: true
-    }
-  ];
+  dataSource: MatTableDataSource<any>;
+  listProduct: ProductInt[] = [ ];
 
    // MatPaginator Inputs
-   length = 100;
+   length = 0;
    pageIndex = 0;
-   pageSize = 10;
-   pageSizeOptions= [10, 25, 50];
+   pageSize = 5;
+   pageSizeOptions= [5, 10, 25];
 
   constructor( public productService: ProductService) { }
 
   ngOnInit(): void {
-  }
-  getEventPage(evt:any){
-    console.log('evt paginator', evt);
+    this.setDataSource();
+    this.getProducts();
   }
 
+  getProducts(){
+    this.productService.getListProducts((this.pageIndex * this.pageSize), this.pageSize).subscribe((resp:any) => {
+        this.listProduct = resp.data;
+        this.length = resp.total;
+        this.setDataSource();
+    }, (error) =>{
+
+    });
+  }
+
+  getEventPage(evt:any){
+    console.log('evt paginator', evt);
+    this.pageIndex = evt.pageIndex;
+    this.length = null;
+    this.pageSize=evt.pageSize;
+    this.getProducts();
+  }
+
+  deleteProduct(index: number){
+    console.log('index: '+index);
+    this.listProduct.splice(index,1);
+    this.setDataSource();
+  }
+
+  setDataSource(){
+    this.dataSource = new MatTableDataSource(this.listProduct);
+  }
 
 
 }

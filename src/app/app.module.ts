@@ -2,7 +2,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +18,7 @@ import { NewProductComponent } from './product/new-product/new-product.component
 import { ProductDetailComponent } from './waiter/product-detail/product-detail.component';
 import { OrdersComponent } from './waiter/orders/orders.component';
 import { ProductsWComponent} from './waiter/products-w/products-w.component';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { ProductsWComponent} from './waiter/products-w/products-w.component';
     BrowserAnimationsModule,
     AppMaterialModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -28,17 +28,17 @@ const routes: Routes = [
       {
         path: 'admin',
         //Carga componente admin
-        loadChildren: ()=> import('./administrator/administrator-routing.module').then(m=>m.AdministratorRoutingModule)
+        loadChildren: ()=> import('./administrator/administrator.module').then(m=>m.AdministratorModule)
       },
       {
         path: 'mesero',
         //Carga componente mesero
-        loadChildren: ()=>import('./waiter/waiter-routing.module').then(m=>m.WaiterRoutingModule)
+        loadChildren: ()=>import('./waiter/waiter.module').then(m=>m.WaiterModule)
       },
       {
         path: 'cajero',
         //Carga componente cajero
-        loadChildren: ()=>import('./cashier/cashier-routing.module').then(m=>m.CashierRoutingModule)
+        loadChildren: ()=>import('./cashier/cashier.module').then(m=>m.CashierModule)
       },
     ]
   },
