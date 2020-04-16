@@ -10,7 +10,10 @@ import { AllProductsComponent } from "./all-products/all-products.component";
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { BuyComponent } from './buy/buy.component';
 import { ListBuyComponent } from "./list-buy/list-buy.component";
-
+import { LoginGuard } from "./services/guards/login.guard";
+import { AdminGuard } from "./services/guards/admin.guard";
+import { CashierGuard } from "./services/guards/cashier.guard";
+import { WaiterGuard } from "./services/guards/waiter.guard";
 const routes: Routes = [
   {
     path: 'access',
@@ -21,8 +24,31 @@ const routes: Routes = [
     component: PracticeComponent
   },
   {
-    path: 'nav',
-    component: NavigationComponent
+    path: '',
+    component: NavigationComponent,
+    canActivate: [LoginGuard],
+    children:[
+      {
+        path: 'admin',
+            //se cargan los modulos de admin
+            canActivate: [AdminGuard],
+            loadChildren:()=> import('./administrator/administrator.module').then(m=>m.AdministratorModule)
+
+      },
+      {
+        path: 'mesero',
+            //se cargan los modulos de admin
+          canActivate: [WaiterGuard],
+          loadChildren:()=> import('./waiter/waiter.module').then(m=>m.WaiterModule)
+      },
+      {
+        path: 'cajero',
+            //se cargan los modulos de admin
+            canActivate: [CashierGuard],
+            loadChildren:()=> import('./cashier/cashier.module').then(m=>m.CashierModule)
+
+      }
+    ]
   },
   {
     path: 'exercises',

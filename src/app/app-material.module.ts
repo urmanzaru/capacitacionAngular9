@@ -8,6 +8,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -24,7 +27,10 @@ import {MatCardModule} from '@angular/material/card';
     MatTableModule,
     MatTabsModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatDividerModule
 
   ]
 })
