@@ -12,25 +12,25 @@
             </div>
             <div class="col-12 col-md-8">
                 <mat-form-field class="mat-form">
-                    <input matInput placeholder="Url de imagen" type="text">
+                    <input matInput placeholder="Url de imagen" type="text" [(ngModel)]="product.image">
                 </mat-form-field>
                 <mat-form-field class="mat-form">
-                    <input matInput placeholder="Nombre" type="text">
+                    <input matInput placeholder="Nombre" type="text" [(ngModel)]="product.name">
                 </mat-form-field>
                 <mat-form-field class="mat-form">
                     <mat-label>Tipo de producto</mat-label>
-                    <mat-select>
+                    <mat-select [(ngModel)]="product.type">
                         <mat-option *ngFor="let item of listType" [value]="item.type">
                             {{item.value}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field class="mat-form">
-                    <input matInput placeholder="Precio" type="number">
+                    <input matInput placeholder="Precio" type="number" [(ngModel)]="product.price">
                 </mat-form-field>
                 <mat-form-field class="mat-form">
                     <mat-label>Descripción del producto</mat-label>
-                    <textarea matInput placeholder="Piensa en lo mejor de tu producto"></textarea>
+                    <textarea matInput placeholder="Piensa en lo mejor de tu producto" [(ngModel)]="product.description"></textarea>
                 </mat-form-field>
             </div>
         </div>

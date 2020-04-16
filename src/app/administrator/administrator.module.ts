@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +14,8 @@ import { FormProductComponent } from './components/form-product/form-product.com
   imports: [
     CommonModule,
     AdministratorRoutingModule,
-    AdministratorMaterialModule
+    AdministratorMaterialModule,
+    FormsModule
   ]
 })
 export class AdministratorModule { }
