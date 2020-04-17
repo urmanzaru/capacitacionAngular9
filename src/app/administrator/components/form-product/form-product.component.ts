@@ -36,4 +36,8 @@ export class FormProductComponent implements OnInit {
     });
   }
 
+  saveProduct(){
+    console.log('send product: ', this.product);
+  }
+
 }
