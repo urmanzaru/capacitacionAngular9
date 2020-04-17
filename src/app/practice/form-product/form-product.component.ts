@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ProductInterface } from 'src/app/interface/product.interface';
+import { ProductItf } from 'src/app/interface/product.interface';
 
 @Component({
   selector: 'app-form-product',
@@ -7,7 +7,7 @@ import { ProductInterface } from 'src/app/interface/product.interface';
   styleUrls: ['./form-product.component.scss']
 })
 export class FormProductComponent implements OnInit {
-  product:ProductInterface={
+  product:ProductItf={
     image:'',
     name:'',
     description:'',
@@ -15,9 +15,9 @@ export class FormProductComponent implements OnInit {
     type:1,
   };
   @Output()
-   evProduct: EventEmitter<ProductInterface>;
+   evProduct: EventEmitter<ProductItf>;
   constructor() {
-    this.evProduct= new EventEmitter<ProductInterface>();
+    this.evProduct= new EventEmitter<ProductItf>();
   }
 
   ngOnInit(): void {

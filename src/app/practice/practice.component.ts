@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductInterface } from '../interface/product.interface';
+import { ProductItf } from '../interface/product.interface';
 
 @Component({
   selector: 'app-practice',
@@ -7,7 +7,8 @@ import { ProductInterface } from '../interface/product.interface';
   styles: []
 })
 export class PracticeComponent implements OnInit{
-product:ProductInterface={
+product:ProductItf={
+  id:1,
   type:1,
   name:"Tlayuda",
   description:"Tlayuda de tasajo",
@@ -15,7 +16,7 @@ product:ProductInterface={
   price:75,
 };
 
-listProduct: ProductInterface[]=[
+listProduct: ProductItf[]=[
 ];
   constructor() { }
   ngOnInit():void{
@@ -25,7 +26,7 @@ this.addProduct();
   addProduct(){
   }
 
-  getProductofForm(product:ProductInterface){
+  getProductofForm(product:ProductItf){
     this.listProduct.push(product);
   }
 }

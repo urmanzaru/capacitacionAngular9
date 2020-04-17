@@ -1,0 +1,39 @@
+<div *ngIf="editMode">Estas editando el producto con id:{{paramId}}</div>
+<div *ngIf="!editMode">Estas creando un nuevo producto </div>
+<div class="mat-elevation-z1 bg-main">
+  <div class="fx-cv-sb pd-general" >
+    <div ><b>Producto</b></div>
+    <button mat-raised-button style="background-color: #ed6904;">Guardar</button>
+  </div>
+  <div class="container">
+    <div class="row" style="background-color: #424242; padding-top: 15px;">
+      <div class="col-12 col-md-4" >
+        <img src="https://i.blogs.es/6fcd37/13400140065_b3290c12e9_b/840_560.jpg" width="100% ;" height="200px" style="margin-bottom: 10px">
+        <mat-form-field class="mat-form" >
+          <input matInput placeholder="Url de Imagen" type="text">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-8 ">
+        <mat-form-field class="mat-form" style="margin-bottom: 10px">
+          <input matInput placeholder="Nombre" type="text">
+        </mat-form-field>
+        <mat-form-field class="mat-form" style="margin-bottom: 10px">
+          <mat-label>Tipo de producto</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let item of listType" [value]="item.type">
+              {{item.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="mat-form">
+          <input matInput placeholder="Precio" type="number">
+        </mat-form-field>
+        <mat-form-field class="mat-form">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput placeholder="Descripcion del producto"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
