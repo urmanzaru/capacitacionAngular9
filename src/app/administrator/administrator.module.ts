@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { AdministratorRoutingModule } from './administrator-routing.module';
 import { ProductsComponent } from './components/products/products.component';
-import { AdministratorMaterialModule } from './administrator-material/administrator-material.module';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { AdministratorMaterialModule } from './administrator-material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { FormProductComponent } from './components/form-product/form-product.com
     CommonModule,
     AdministratorRoutingModule,
     AdministratorMaterialModule,
+    FormsModule,
   ]
 })
 export class AdministratorModule { }

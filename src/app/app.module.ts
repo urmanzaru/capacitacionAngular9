@@ -10,11 +10,12 @@ import { PracticeComponent } from './practice/practice.component';
 import { ProductItemComponent } from './practice/shared/product-item/product-item.component';
 import { FormProductComponent } from './practice/form-product/form-product.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { LogInComponent } from './login/log-in/log-in.component';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { LogInComponent } from './login/log-in/log-in.component';
     MatIconModule,
 
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

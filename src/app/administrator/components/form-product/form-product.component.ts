@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { type } from 'os';
+import { ProductItf } from 'src/app/interface/product.interface';
+import {ProductModel} from './../../../models/product.model';
 
 @Component({
   selector: 'app-form-product',
@@ -12,6 +13,9 @@ export class FormProductComponent implements OnInit {
   editMode:boolean;
   paramId:number;
   listType=[{value:'Comida',type:1},{value:'Bebida',type:2},{value:'Postre',type:3}]
+
+  product:ProductItf;
+
   constructor(private _activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,9 +27,14 @@ export class FormProductComponent implements OnInit {
       if(p.id){
         this.editMode=true;
         this.paramId=p.id;
+        //get product by id
       }else{
         this.editMode=false;
+        this.product=new ProductModel();
       }
     })
+  }
+  sendProduct(){
+    console.log('send_product:',this.product);
   }
 }

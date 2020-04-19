@@ -60,6 +60,10 @@ export class UserService {
     return this.jwt.username;
   }
 
+  get access_token(){
+    return this.jwt.access_token;
+  }
+
   logOut(){
     this.jwt=null;
     localStorage.removeItem('jwt_resbar');

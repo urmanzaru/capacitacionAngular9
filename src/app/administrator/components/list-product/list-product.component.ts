@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductItf } from 'src/app/interface/product.interface';
 import { ProductService } from 'src/app/services/product/product.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-list-product',
@@ -11,39 +12,36 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListProductComponent implements OnInit {
   displayedColumns:string[]=['foto','nombre','descripcion','precio','tipo','estado','acciones'];
   dataSource:MatTableDataSource<any>;
-  listProduct:ProductItf[]=[
-    {
-      id:1,
-      image:'https://www.eluniversal.com.mx/sites/default/files/styles/f01-1023x630/public/2019/05/28/tejate_1.jpg?itok=Udpf2IKh',
-      name:'tejate',
-      description:'bebida de los dioses',
-      price:45,
-      type:3,
-      status:true
-    },
-    {
-      id:2,
-      image:'https://www.eluniversal.com.mx/sites/default/files/styles/f01-1023x630/public/2019/05/28/tejate_1.jpg?itok=Udpf2IKh',
-      name:'Tlayuda',
-      description:'Lo mejor de la casa',
-      price:75,
-      type:1,
-      status:true
-    }
-  ];
+  listProduct:ProductItf[]=[];
 
   pageIndex=0;
-  length=100;
-  pageSize=10;
-  pageSizeOptions=[10,25,50]
+  length=0;
+  pageSize=5;
+  pageSizeOptions=[5,10,25];
   constructor(public productService:ProductService) { }
 
   ngOnInit(): void {
     this.setDataSource();
+    this.getProducts();
+  }
+
+  getProducts(){
+    this.productService.getListProducts((this.pageIndex * this.pageSize),this.pageSize).subscribe((resp:any)=>{
+
+      this.listProduct = resp.data;
+      this.length = resp.total;
+      this.setDataSource();
+    },(error)=>{
+
+    });
   }
 
   getEventPage(evt:any){
     console.log('evt paginator: ',evt);
+    this.pageIndex=evt.pageIndex;
+    this.length=null;
+    this.pageSize=evt.pageSize;
+    this.getProducts();
   }
   deleteProduct(index:number){
     this.listProduct.splice(index,1);
