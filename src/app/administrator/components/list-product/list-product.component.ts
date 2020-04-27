@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductItf } from 'src/app/interface/product.interface';
 import { ProductService } from 'src/app/services/product/product.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-list-product',

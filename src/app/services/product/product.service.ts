@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { element } from 'protractor';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ProductModel } from 'src/app/models/product.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private _http:HttpClient) { }
+  url=environment.server +'product';
+
+  constructor(private _http:HttpClient ) { }
 
   getListProducts(offset:number,max:number){
     return this._http.get(environment.server+'product?offset='+offset+'&max='+max);
@@ -19,5 +22,14 @@ export class ProductService {
     if(type===3){return 'Postre'}
     return '';
 
+  }
+  post(product:ProductModel): Observable <ProductModel> {
+    return this._http.post<ProductModel>(environment.server + 'product', product);
+  }
+  update(product:ProductModel):Observable <ProductModel> {
+    return this._http.post<ProductModel>(environment.server + 'product', product);
+  }
+  getId(id:number){
+    return this._http.get(environment.server + 'product/'+ id)
   }
 }

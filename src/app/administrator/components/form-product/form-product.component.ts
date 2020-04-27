@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductItf } from 'src/app/interface/product.interface';
 import {ProductModel} from './../../../models/product.model';
+import { NgForm } from '@angular/forms';
+import { ProductService } from 'src/app/services/product/product.service';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-form-product',
@@ -13,10 +16,10 @@ export class FormProductComponent implements OnInit {
   editMode:boolean;
   paramId:number;
   listType=[{value:'Comida',type:1},{value:'Bebida',type:2},{value:'Postre',type:3}]
-
   product:ProductItf;
 
-  constructor(private _activeRoute:ActivatedRoute) { }
+
+  constructor(private _activeRoute:ActivatedRoute,private _router:Router,private productService:ProductService) { }
 
   ngOnInit(): void {
     this.checkParams();
@@ -27,6 +30,9 @@ export class FormProductComponent implements OnInit {
       if(p.id){
         this.editMode=true;
         this.paramId=p.id;
+        this.productService.getId(p.id).subscribe((resp:any)=>{
+          this.product=resp;
+        })
         //get product by id
       }else{
         this.editMode=false;
@@ -34,7 +40,23 @@ export class FormProductComponent implements OnInit {
       }
     })
   }
-  sendProduct(){
-    console.log('send_product:',this.product);
+
+  sendProduct(productForm: NgForm){
+    if(productForm.invalid){
+      console.log('Formulario invalido');
+      return;
+        }
+        if(!this.editMode){
+          this.productService.post(this.product).subscribe((Response:any)=>
+          {
+            console.log('add product success');
+            this._router.navigate(['admin/products']);
+          });
+        }else{
+          this.productService.update(this.product).subscribe((Response:any)=>{
+            console.log('add product failed');
+          })
+        }
+        console.log('send_product:',this.product);
   }
 }
