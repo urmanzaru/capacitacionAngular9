@@ -27,7 +27,7 @@ export class ProductService {
     return this._http.post<ProductModel>(environment.server + 'product', product);
   }
   update(product:ProductModel):Observable <ProductModel> {
-    return this._http.post<ProductModel>(environment.server + 'product', product);
+    return this._http.put<ProductModel>(environment.server + 'product/' + product.id,product);
   }
   getId(id:number){
     return this._http.get(environment.server + 'product/'+ id)

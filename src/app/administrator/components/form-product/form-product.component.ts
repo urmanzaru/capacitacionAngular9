@@ -4,7 +4,6 @@ import { ProductItf } from 'src/app/interface/product.interface';
 import {ProductModel} from './../../../models/product.model';
 import { NgForm } from '@angular/forms';
 import { ProductService } from 'src/app/services/product/product.service';
-import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-form-product',
@@ -49,12 +48,13 @@ export class FormProductComponent implements OnInit {
         if(!this.editMode){
           this.productService.post(this.product).subscribe((Response:any)=>
           {
-            console.log('add product success');
-            this._router.navigate(['admin/products']);
+            console.log('add product failed');
+
           });
         }else{
           this.productService.update(this.product).subscribe((Response:any)=>{
-            console.log('add product failed');
+            console.log('add product success');
+            this._router.navigate(['admin/products']);
           })
         }
         console.log('send_product:',this.product);

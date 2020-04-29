@@ -1,16 +1,16 @@
 <div *ngIf="editMode">Estas editando el producto con id:{{paramId}}</div>
 <div *ngIf="!editMode">Estas creando un nuevo producto </div>
 <div class="mat-elevation-z1 bg-main">
-  <form #productForm="ngForm" ngNativeValidate >
-    <div class="fx-cv-sb pd-general" >
+  <form #productForm="ngForm" ngNativeValidate>
+    <div class="fx-cv-sb pd-general">
       <div ><b>Producto</b></div>
-      <button mat-raised-button type="submit" style="background-color: #ed6904;" (click)="sendProduct(productForm)">Guardar</button>
+      <button mat-raised-button type="submit" style="background-color: #ed6904" (click)="sendProduct(productForm)">Guardar</button>
     </div>
-    <div class="container">
-      <div class="row" style="background-color: #424242; padding-top: 15px;">
+    <div class="container" style="color: white">
+      <div class="row" style="background-color: #424242; padding-top: 15px">
         <div class="col-12 col-md-4" >
-          <img src="https://i.blogs.es/6fcd37/13400140065_b3290c12e9_b/840_560.jpg" width="100% ;" height="200px" style="margin-bottom: 10px">
-          <mat-form-field class="mat-form" >
+          <img src="https://i.blogs.es/6fcd37/13400140065_b3290c12e9_b/840_560.jpg" width="100%" height="200px" style="margin-bottom: 10px">
+          <mat-form-field class="mat-form">
             <input matInput name="image" placeholder="Url de Imagen" type="url" [(ngModel)]="product.image" required>
           </mat-form-field>
         </div>
@@ -21,21 +21,20 @@
           <mat-form-field class="mat-form" style="margin-bottom: 10px" required>
             <mat-label>Tipo de producto</mat-label>
             <mat-select name="type"[(ngModel)]="product.type" required>
-            <mat-option *ngFor="let item of listType" [value]="item.type" required>
-              {{item.value}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="mat-form">
-          <input matInput name="price" placeholder="Precio" type="number" [(ngModel)]="product.price" required minlength="1">
-         </mat-form-field>
-        <mat-form-field class="mat-form">
-          <mat-label>Descripción</mat-label>
-          <textarea matInput name="description" placeholder="Descripcion del producto" [(ngModel)]="product.description" required maxlength="250"></textarea>
-        </mat-form-field>
+              <mat-option *ngFor="let item of listType" [value]="item.type" required>
+                {{item.value}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="mat-form">
+            <input matInput name="price" placeholder="Precio" type="number" [(ngModel)]="product.price" required minlength="1">
+          </mat-form-field>
+          <mat-form-field class="mat-form">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput name="description" placeholder="Descripcion del producto" [(ngModel)]="product.description" required maxlength="250"></textarea>
+          </mat-form-field>
+        </div>
       </div>
     </div>
-  </div>
   </form>
 </div>
-
